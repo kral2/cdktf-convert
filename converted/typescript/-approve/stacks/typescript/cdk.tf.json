@@ -1,0 +1,63 @@
+{
+  "//": {
+    "metadata": {
+      "backend": "local",
+      "stackName": "typescript",
+      "version": "0.16.1"
+    },
+    "outputs": {
+    }
+  },
+  "provider": {
+    "docker": [
+      {
+        "host": "unix:///var/run/docker.sock"
+      }
+    ]
+  },
+  "resource": {
+    "docker_container": {
+      "nginx": {
+        "//": {
+          "metadata": {
+            "path": "typescript/nginx_2",
+            "uniqueId": "nginx"
+          }
+        },
+        "image": "${docker_image.nginx.image_id}",
+        "name": "cdktf-nginx",
+        "ports": [
+          {
+            "external": 8000,
+            "internal": 80
+          }
+        ]
+      }
+    },
+    "docker_image": {
+      "nginx": {
+        "//": {
+          "metadata": {
+            "path": "typescript/nginx",
+            "uniqueId": "nginx"
+          }
+        },
+        "keep_locally": true,
+        "name": "nginx:latest"
+      }
+    }
+  },
+  "terraform": {
+    "backend": {
+      "local": {
+        "path": "/Users/cetinardal/code/sandbox/learn-cdktf/cdktf-convert/converted/typescript/terraform.typescript.tfstate"
+      }
+    },
+    "required_providers": {
+      "docker": {
+        "source": "kreuzwerker/docker",
+        "version": "3.0.2"
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "version": "0.16.1",
+  "stacks": {
+    "typescript": {
+      "name": "typescript",
+      "constructPath": "typescript",
+      "workingDirectory": "stacks/typescript",
+      "synthesizedStackPath": "stacks/typescript/cdk.tf.json",
+      "annotations": [],
+      "dependencies": []
+    }
+  }
+}
